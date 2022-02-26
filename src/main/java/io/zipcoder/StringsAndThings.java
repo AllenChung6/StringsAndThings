@@ -15,26 +15,23 @@ public class StringsAndThings {
      * countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input) {
-        String word = input;
+        String word = input + " ";
         int count = 0;
         int finalCounter;
 
-        word.substring(word.length() -1);
-        System.out.println(word);
+        //word.substring(word.length() - 1);
+        //System.out.println(word);
 
-        for (int i = 0; i <= word.length(); i++) {
+        for (int i = 1; i < word.length(); i++) {
             char currentChar = word.charAt(i);
-            //System.out.println(currentChar);
-
-            if ((currentChar == 'y') || (currentChar == 'z')) {
+            if (word.charAt(i) == ' ' && (word.charAt(i - 1) == 'y' || word.charAt(i - 1) == 'z')) {
+                System.out.print(word.charAt(i - 1) + " ");
                 count++;
                 System.out.println(count);
             }
-            }
-        return count;
         }
-
-
+        return count;
+            }
 
 
         /**
