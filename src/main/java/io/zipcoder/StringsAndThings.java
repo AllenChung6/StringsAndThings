@@ -17,13 +17,11 @@ public class StringsAndThings {
     public Integer countYZ(String input) {
         String word = input + " ";
         int count = 0;
-        int finalCounter;
 
         //word.substring(word.length() - 1);
         //System.out.println(word);
 
         for (int i = 1; i < word.length(); i++) {
-            char currentChar = word.charAt(i);
             if (word.charAt(i) == ' ' && (word.charAt(i - 1) == 'y' || word.charAt(i - 1) == 'z')) {
                 System.out.print(word.charAt(i - 1) + " ");
                 count++;
@@ -69,8 +67,21 @@ public class StringsAndThings {
          *           gHappy("xxgxx") // Should return  false
          *           gHappy("xxggyygxx") // Should return  false
          */
-        public Boolean gIsHappy (String input){
-            return null;
+        public Boolean gIsHappy (String input) {
+            String word = input;
+            int count = 0;
+            int lengthOf = word.length();
+
+
+            for (int i = 0; i < lengthOf - 2; i++) {
+
+            }
+            char currentChar = word.charAt(i);
+            if (currentChar == 'g' && currentChar == input.charAt(i + 2)) {
+                System.out.println(input);
+                count++;
+                System.out.println(count);
+            }
         }
 
 
@@ -82,7 +93,23 @@ public class StringsAndThings {
          *            countTriple("a") // Should return 0
          */
         public Integer countTriple (String input){
-            return null;
+            String word = input;
+            int count = 0;
+            int lengthOf = word.length();
+
+            //word.substring(word.length() - 1);
+            //System.out.println(word);
+
+            for (int i = 0; i < lengthOf-2; i++) {
+                char currentChar = word.charAt(i);
+                if (currentChar == input.charAt(i+1) && currentChar == input.charAt(i+2)) {
+                    System.out.println(input);
+                    count++;
+                    System.out.println(count);
+                }
+            }
+            return count;
+
         }
     }
 
