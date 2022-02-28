@@ -1,5 +1,7 @@
 package io.zipcoder;
 import java.lang.Character;
+import java.util.Objects;
+
 
 /**
  * @author tariq
@@ -29,37 +31,54 @@ public class StringsAndThings {
             }
         }
         return count;
+    }
+
+
+    /**
+     * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
+     * been removed (not case sensitive). You may assume that the remove string is length 1 or more.
+     * Remove only non-overlapping instances, so with "xxx" removing "xx" leaves "x".
+     * <p>
+     * example : removeString("Hello there", "llo") // Should return "He there"
+     * removeString("Hello there", "e") //  Should return "Hllo thr"
+     * removeString("Hello there", "x") // Should return "Hello there"
+     */
+    public String removeString(String base, String remove) {
+        String removedString = base.replace(remove, "");
+        return removedString;
+    }
+
+    /**
+     * Given a string, return true if the number of appearances of "is" anywhere in the string is equal
+     * to the number of appearances of "not" anywhere in the string (case sensitive)
+     * <p>
+     * example : containsEqualNumberOfIsAndNot("This is not")  // Should return false
+     * containsEqualNumberOfIsAndNot("This is notnot") // Should return true
+     * containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
+     */
+
+
+    public Boolean containsEqualNumberOfIsAndNot(String input) {
+        String is = "is";
+        String not = "not";
+        int numberIs = 0;
+        int numberNot = 0;
+
+        for (int i = 0; i <= input.length(); i++)
+            if (input.charAt(i) == 'i' && input.charAt(i + 1) == 's') {
+                numberIs++;
+                System.out.println(numberIs++);
+            } else if ((input.charAt(i) == 'n' && input.charAt(i + 1) == 'o' && input.charAt(i + 2) == 't')) {
+                numberNot++;
+                System.out.println(numberNot++);
             }
-
-
-        /**
-         * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
-         * been removed (not case sensitive). You may assume that the remove string is length 1 or more.
-         * Remove only non-overlapping instances, so with "xxx" removing "xx" leaves "x".
-         *
-         * example : removeString("Hello there", "llo") // Should return "He there"
-         *           removeString("Hello there", "e") //  Should return "Hllo thr"
-         *           removeString("Hello there", "x") // Should return "Hello there"
-         */
-        public String removeString(String base, String remove){
-            String removedString = base.replace(remove, "");
-            return removedString;
-        }
-
-        /**
-         * Given a string, return true if the number of appearances of "is" anywhere in the string is equal
-         * to the number of appearances of "not" anywhere in the string (case sensitive)
-         *
-         * example : containsEqualNumberOfIsAndNot("This is not")  // Should return false
-         *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
-         *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
-         */
-
-
-        public Boolean containsEqualNumberOfIsAndNot (String input){
-            return null;
-        }
-
+        if (numberIs == numberNot) {
+            System.out.println("Equal number!");
+            return true;
+            }
+        System.out.println("Not equal");
+        return false;
+    }
         /**
          * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
          * Return true if all the g's in the given string are happy.
@@ -72,17 +91,17 @@ public class StringsAndThings {
             int count = 0;
             int lengthOf = word.length();
 
+        for (int i = 0; i < lengthOf - 2; i++) {
+            Character ch1 = new Character('g');
+            Character ch2 = new Character(input.charAt(i));
+            Character ch3 = new Character(input.charAt(i + 1));
+            Character ch4 = new Character(input.charAt(i + 2));
 
-            for (int i = 0; i < lengthOf - 2; i++) {
-
-            }
-            char currentChar = word.charAt(i);
-            if (currentChar == 'g' && currentChar == input.charAt(i + 2)) {
-                System.out.println(input);
-                count++;
-                System.out.println(count);
-            }
+            if (ch1.equals(ch2) && (ch2.equals(ch3)))
+                return true;
         }
+        return false;
+    }
 
 
         /**
@@ -97,19 +116,15 @@ public class StringsAndThings {
             int count = 0;
             int lengthOf = word.length();
 
-            //word.substring(word.length() - 1);
-            //System.out.println(word);
 
-            for (int i = 0; i < lengthOf-2; i++) {
+            for (int i = 0; i < lengthOf - 2; i++) {
                 char currentChar = word.charAt(i);
-                if (currentChar == input.charAt(i+1) && currentChar == input.charAt(i+2)) {
+                if (currentChar == input.charAt(i + 1) && currentChar == input.charAt(i + 2)) {
                     System.out.println(input);
                     count++;
                     System.out.println(count);
                 }
             }
             return count;
-
         }
     }
-
