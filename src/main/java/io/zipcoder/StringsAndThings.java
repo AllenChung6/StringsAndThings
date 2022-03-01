@@ -59,26 +59,36 @@ public class StringsAndThings {
 
 
     public Boolean containsEqualNumberOfIsAndNot(String input) {
+        //Iterate through string and see if "is" and "not" there.
         String is = "is";
         String not = "not";
         int numberIs = 0;
         int numberNot = 0;
+        String newString = "";
 
-        for (int i = 0; i <= input.length(); i++)
+        //newString = input.replaceAll("\\s", "");
+
+        for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == 'i' && input.charAt(i + 1) == 's') {
                 numberIs++;
-                System.out.println(numberIs++);
-            } else if ((input.charAt(i) == 'n' && input.charAt(i + 1) == 'o' && input.charAt(i + 2) == 't')) {
+                System.out.println("Found an Is" + numberIs);
+            } else if ((input.charAt(i) == 'n' && (input.charAt(i + 1) == 'o' && input.charAt(i + 2) == 't'))) {
                 numberNot++;
-                System.out.println(numberNot++);
+                System.out.println("Found a not!" + numberNot);
+            } else {
+                System.out.println("Next");
             }
-        if (numberIs == numberNot) {
-            System.out.println("Equal number!");
-            return true;
+        }
+            if (numberIs == numberNot) {
+                System.out.print(numberIs);
+                System.out.print(numberNot);
+                System.out.println("True!");
+                return true;
             }
-        System.out.println("Not equal");
-        return false;
+            return false;
     }
+
+
         /**
          * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
          * Return true if all the g's in the given string are happy.
